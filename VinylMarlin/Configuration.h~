@@ -419,8 +419,7 @@
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
-//nebarnix: TODO try commenting this out?
-#define USE_YMIN_PLUG 
+#define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
@@ -741,13 +740,6 @@
 #define Y_MAX_POS 1000
 #define Z_MAX_POS 100
 
-//nebarnix: loosely enforced only during homing 
-#define E_MAX_POS 10
-
-//offset required for the blade should face the user, meaning Y axis motion in the negative direction (vinyl moving back onto roll)
-#define E_HOME_OFFSET 0.9 
-
-
 // If enabled, axes won't move below MIN_POS in response to movement commands.
 //#define MIN_SOFTWARE_ENDSTOPS
 // If enabled, axes won't move above MAX_POS in response to movement commands.
@@ -955,8 +947,6 @@
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (50*60)
-//E is the swivel axis
-#define HOMING_FEEDRATE_E (3.0)
 #define HOMING_FEEDRATE_Z  (10*60) //nebarnix: was 4*60
 
 //=============================================================================

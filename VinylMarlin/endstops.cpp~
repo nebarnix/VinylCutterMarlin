@@ -257,11 +257,10 @@ void Endstops::update() {
   #define _ENDSTOP_HIT(AXIS) SBI(endstop_hit_bits, _ENDSTOP(AXIS, MIN))
 
   // UPDATE_ENDSTOP_BIT: set the current endstop bits for an endstop to its status
-  //nebarnix: might need to hack this line when homing the Y axis for the E axis
   #define UPDATE_ENDSTOP_BIT(AXIS, MINMAX) SET_BIT(current_endstop_bits, _ENDSTOP(AXIS, MINMAX), (READ(_ENDSTOP_PIN(AXIS, MINMAX)) != _ENDSTOP_INVERTING(AXIS, MINMAX)))
   // COPY_BIT: copy the value of SRC_BIT to DST_BIT in DST
   #define COPY_BIT(DST, SRC_BIT, DST_BIT) SET_BIT(DST, DST_BIT, TEST(DST, SRC_BIT))
-  //nebarnix: is this how homing works? When the endstop is hit does it stop the motion?
+
   #define UPDATE_ENDSTOP(AXIS,MINMAX) do { \
       UPDATE_ENDSTOP_BIT(AXIS, MINMAX); \
       if (TEST_ENDSTOP(_ENDSTOP(AXIS, MINMAX)) && stepper.current_block->steps[_AXIS(AXIS)] > 0) { \
@@ -382,10 +381,9 @@ void Endstops::update() {
   }
 
   if (Y_MOVE_TEST) {
-    if (stepper.motor_direction(Y_AXIS_HEAD)) { // -direction //nebarnix: change y home to home extruder?
+    if (stepper.motor_direction(Y_AXIS_HEAD)) { // -direction
       #if HAS_Y_MIN
         UPDATE_ENDSTOP(Y, MIN);
-        //SET_BIT(current_endstop_bits, _ENDSTOP(Y, MIN), (READ(_ENDSTOP_PIN(Y, MIN)) != _ENDSTOP_INVERTING(Y, MIN)));
       #endif
     }
     else { // +direction

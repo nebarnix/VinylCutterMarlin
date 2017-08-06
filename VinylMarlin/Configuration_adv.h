@@ -671,7 +671,7 @@
 
 // Arc interpretation settings:
 #define ARC_SUPPORT  // Disabling this saves ~2738 bytes
-#define MM_PER_ARC_SEGMENT 1
+#define MM_PER_ARC_SEGMENT 0.25
 #define N_ARC_CORRECTION 25
 
 // Support for G5 with XYZE destination and IJPQ offsets. Requires ~2666 bytes.

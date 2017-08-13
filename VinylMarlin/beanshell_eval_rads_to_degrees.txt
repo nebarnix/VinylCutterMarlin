@@ -1,0 +1,2 @@
+NewAngle=(-?\d+\.\d+) OldAngle=(-?\d+\.\d+) 
+"NewAngle=" + String.valueOf((Float.valueOf(_1)+15*2*3.141596)*57.295779513) + " OldAngle=" + String.valueOf((Float.valueOf(_2)+15*2*3.141596)*57.295779513)+' '
